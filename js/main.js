@@ -1,46 +1,23 @@
-// Consuming API cat
-async function getCatImage() {
-    try {
-        const response = await fetch('https://api.thecatapi.com/v1/images/search');
-        const data = await response.json();
-        
-        return data[0].url;
-    } catch (error) {
-        console.error(error);
-        console.log("unable to get the image");
-    }
+const API_URL = 'https://api.thecatapi.com/v1/images/search?limit=3&api_key=live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY';
+
+async function reload() {
+    const res = await fetch(API_URL);
+    const data = await res.json();
+    console.log(data);
+    const img1 = document.getElementById('img1');
+    const img2 = document.getElementById('img2');
+    const img3 = document.getElementById('img3');
+
+    img1.src = data[0].url;
+    img2.src = data[1].url;
+    img3.src = data[2].url;
 }
 
-async function showCatImage() {
-    try {
-        const catImage = await getCatImage();
-        const img = document.querySelector('img');
-        img.src = catImage;
-    } catch (error) {
-        console.error(error);
-        console.log("unable to show the kitty");
-    }
-}
-
-showCatImage();
-
-
+reload();
 
 //Event click buttom 
 let buttomNextCat = document.querySelector('.buttom--next-cat');
 
 buttomNextCat.addEventListener('click', function() {
-    showCatImage();
+    reload();
 });
-
-
-
-//ANOTHER WAY TO GET THE IMAGE WITH FETCH
-
-// const URL = 'https://api.thecatapi.com/v1/images/search';
-// fetch(URL)
-//     .then(res => res.json())
-//     .then(data => {
-//         const img = document.querySelector('img');
-//         img.src = data[0].url;
-//     })
