@@ -1,5 +1,6 @@
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2';
-const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites?api_key=live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY'
+const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites?api_key=live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY';
+const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY`;
 
 const spanError = document.getElementById('error')
 
@@ -37,8 +38,15 @@ const res = await fetch(API_URL_FAVORITES);
     if (res.status !== 200) {
         spanError.innerHTML = "Hubo un error: " + res.status + data.message;
     } else {
+        const section = document.getElementById('favorites');
+        section.innerHTML = "";
+
+        const h2 = document.createElement('h2');
+        const h2Text = document.createTextNode('Favorites');
+        h2.appendChild(h2Text);
+        section.appendChild(h2);
+
         data.forEach(doggy => {
-            const section = document.getElementById('favorites');
             const article = document.createElement('article');
             const img = document.createElement('img');
             const btn = document.createElement('button');
@@ -46,6 +54,7 @@ const res = await fetch(API_URL_FAVORITES);
 
             img.src = doggy.image.url;
             btn.appendChild(btnText);
+            btn.onclick = () => deleteFavoriteDog(doggy.id); 
             article.appendChild(img);
             article.appendChild(btn);
             section.appendChild(article);
@@ -62,15 +71,34 @@ const res = await fetch(API_URL_FAVORITES, {
     body: JSON.stringify({
     image_id: id
     }),
-});
-const data = await res.json();
+    });
+    const data = await res.json();
 
-console.log('Save')
-console.log(res)
+    console.log('Save')
+    console.log(res)
 
-if (res.status !== 200) {
-    spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+    if (res.status !== 200) {
+        spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+    } else {
+        console.log('Se guardó el doggo en favoritos');
+        loadFavoriteDogs();
+    }
 }
+
+async function deleteFavoriteDog(id) {
+    const res = await fetch(API_URL_FAVORITES_DELETE(id), {
+        method: 'DELETE',
+        });
+        const data = await res.json();
+    
+        console.log('Save')
+        console.log(res)
+        if (res.status !== 200) {
+            spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+        } else {
+            console.log('Se eliminó el doggo de favoritos')
+            loadFavoriteDogs()
+        }
 }
 loadRandomDogs();
 loadFavoriteDogs()
