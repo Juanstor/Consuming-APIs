@@ -85,3 +85,8 @@ button {
 button:hover{
     cursor: pointer;
 }
+
+img {
+    width: 150px;
+    height: auto;
+}
