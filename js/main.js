@@ -1,7 +1,7 @@
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2';
-const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites?api_key=live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY';
-const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}?api_key=live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY`;
-
+const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
+const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
+const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 const spanError = document.getElementById('error')
 
 
@@ -29,7 +29,12 @@ async function loadRandomDogs() {
 }
 
 async function loadFavoriteDogs() {
-const res = await fetch(API_URL_FAVORITES); 
+    const res = await fetch(API_URL_FAVORITES, {
+        method: 'GET',
+        headers: {
+            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY'
+        }
+    }); 
     const data = await res.json();
 
     console.log('Favoritos')
@@ -63,15 +68,16 @@ const res = await fetch(API_URL_FAVORITES);
 }
 
 async function saveFavoriteDog(id) {
-const res = await fetch(API_URL_FAVORITES, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-    image_id: id
-    }),
-    });
+    const res = await fetch(API_URL_FAVORITES, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY',
+        },
+        body: JSON.stringify({
+            image_id: id
+        }),
+        });
     const data = await res.json();
 
     console.log('Save')
@@ -88,6 +94,9 @@ const res = await fetch(API_URL_FAVORITES, {
 async function deleteFavoriteDog(id) {
     const res = await fetch(API_URL_FAVORITES_DELETE(id), {
         method: 'DELETE',
+        headers: {
+            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY',
+        }
         });
         const data = await res.json();
     
@@ -100,5 +109,32 @@ async function deleteFavoriteDog(id) {
             loadFavoriteDogs()
         }
 }
+
+async function uploadDoggyPhoto() {
+    const form = document.getElementById('uploadiongForm');
+    const formData = new FormData(form);
+
+    console.log(formData.get('file'));
+
+    const res = await fetch(API_URL_UPLOAD, {
+        method: 'POST',
+        headers: {
+            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY',
+        },
+        body: formData,
+    })
+    const data = await res.json();
+
+    if (res.status !== 201) {
+        spanError.innerHTML = "Hubo un error: " + res.status + data.message;
+        console.log({data})
+    } else {
+        console.log('Foto de perrito subida')
+        console.log({data})
+        console.log(data.url)
+        saveFavoriteDog(data.id);
+    }
+}
+
 loadRandomDogs();
 loadFavoriteDogs()
