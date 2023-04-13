@@ -7,12 +7,19 @@
     /* font-family: 'Titan One', cursive; */
 }
 :root {
+    --orange1: #BB8F5A;
+    --orange2: #FABE79;
+    --orange3: #FDE7CD;
+    --blue1: #5987BB;
+    --blue2: #80B0DF;
+    --blue3: #CDE2F6;
     --just-white:#FFFFFF;
     --orange:#FA8C04;
     --light-orange:#FEF1E0;
     --blue:#0472FA;
     --brown:#5E3502;
     --black:#000000;
+
 }
 header {
     display: flex;
@@ -25,16 +32,98 @@ header {
 .main_icon {
         height: 25px;
         width: 25px;
-        margin: 7px;
-        margin-left: 12px;
-}
+        margin: 7px 14px;
+    }
 h1 {
     font-family: 'Titan One', cursive;
-    font-size: 2.4rem;
+    font-size: 3rem;
     font-weight: 400;
     line-height: 2.7rem;
     color: var(--just-white);
 }
+
+nav ul {
+    display: flex;
+    height: 44px;
+    margin: 0 14px;
+    padding-top: 14px;
+    align-items: center;
+    font-size: 4rem;
+    list-style: none;
+    text-decoration: none;
+    background-color: var(--just-white);
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+nav ul li {
+    display: flex;
+    text-decoration: none;
+    background-color: var(--orange1);
+    padding: 6px 14px 4px 14px;
+    border-radius: 14px 14px 0 0;
+}
+nav ul li a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+main {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--just-white);
+}
+.btnGenerate-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto ;
+}
+.buttom--next-dog {
+width: 140px;
+height: 30px;
+border-radius: 4px;
+font-size: 1.6rem;
+font-weight: 400;
+line-height: 19px;
+color: var(--just-white);
+background-color: var(--blue);
+border: none;
+}
+button:hover{
+cursor: pointer;
+}
+.pics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 240px);
+    gap: 26px;
+    place-content: center;
+}
+.DogImage {
+    width: 240px;
+    box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
+    border-radius: 16px;
+}
+
+.btnFav {
+    position: relative;
+    top: 48px;
+    left: 190px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 70%;
+}
+
+
+img {
+    width: 150px;
+    height: auto;
+}
+
 h2 {
     font-weight: 800;
     font-size: 2.4rem;
@@ -42,51 +131,10 @@ h2 {
     color: var(--brown);
     margin-bottom: 12px;
 }
-
-main {
-    width: 100%;
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    margin: 0px auto;
-    background-color: var(--light-orange);
-}
-p {
-    font-weight: 400;
-    font-size: 1.6rem;
-    line-height: 1.9rem;
-    color: var(--black);
-    margin-bottom: 16px;
-}
-.DogImage {
-    min-width: 270px;
-    width: 80%;
-    height: auto;
-    margin: 0px auto 16px;
-    box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
-}
-.botonNext {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 20px;
-}
-button {
-    width: 140px;
-    height: 30px;
-    border-radius: 4px;
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 19px;
-    color: var(--just-white);
-    background-color: var(--blue);
-    border: none;
-}
-button:hover{
-    cursor: pointer;
-}
-
-img {
-    width: 150px;
-    height: auto;
-}
+    p {
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 1.9rem;
+        color: var(--black);
+        margin-bottom: 16px;
+    }

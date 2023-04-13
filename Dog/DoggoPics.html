@@ -12,29 +12,55 @@
 </head>
 <body>
     <header>
-        <img class="main_icon" src="/assets/img/dog.png" alt="main icon">
+        <img class="main_icon" src="../assets/img/dog.png" alt="main icon">
         <span></span><h1>Doggo Pics</h1>
     </header>
-
+    <nav>
+        <ul>
+            <li><a href="/">Pics</a></li>
+            <li><a href="/">Favorite</a></li>
+            <li><a href="/">Upload image</a></li>
+        </ul>
+    </nav>
     <main>
         <span id="error"></span>
         <section id="generate">
-            <h2>Genera tu canino ideal</h2>
-            <p>Found happiness in this little fellas:</p>
-
-            <article>
-                <img class="DogImage" id="img1" alt="Foto gato aleatorio">
-                <button id="btn1">Wow! Favoritos</button>
-            </article>
-
-            <article>
-                <img class="DogImage"id="img2" alt="Foto gato aleatorio">
-                <button id="btn2">Wow! Favoritos</button>
-            </article>
-
-            <div class="botonNext">
+            <div class="btnGenerate-container">
                 <button onclick="loadRandomDogs()" class="buttom--next-dog">Generate Doggy</button>
             </div>
+
+            <div class="pics-container">
+                <article>
+                    <button id="btn1" class="btnFav" >♥</button>
+                    <img class="DogImage" id="img1" alt="Foto gato aleatorio">
+                </article>
+    
+                <article>
+                    <button id="btn2" class="btnFav" >♥</button>
+                    <img class="DogImage" id="img2" alt="Foto gato aleatorio">
+                </article>
+    
+                <article>
+                    <button id="btn3" class="btnFav" >♥</button>
+                    <img class="DogImage" id="img3" alt="Foto gato aleatorio">
+                </article>
+    
+                <article>
+                    <button id="btn4" class="btnFav" >♥</button>
+                    <img class="DogImage" id="img4" alt="Foto gato aleatorio">
+                </article>
+    
+                <article>
+                    <button id="btn5" class="btnFav" >♥</button>
+                    <img class="DogImage" id="img5" alt="Foto gato aleatorio">
+                </article>
+    
+                <article>
+                    <button id="btn6" class="btnFav" >♥</button>
+                    <img class="DogImage" id="img6" alt="Foto gato aleatorio">
+                </article>
+            </div>
+
         </section>
         
         <section id="uploadingDoggy">
