@@ -4,60 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Titan+One&display=swap" rel="stylesheet">
-    <title>Random cats</title>
+    <title>Pet Home</title>
 </head>
 <body>
     <header>
-        <img class="main_icon" src="./assets/ico/main_icon.png" alt="main icon">
-        <span></span><h1>Doggo App</h1>
+        CHOOSE YOUR TEAM
     </header>
-
     <main>
-        <span id="error"></span>
-        <section id="generate">
-            <h2>Genera tu canino ideal</h2>
-            <p>Found happiness in this little fellas:</p>
-
-            <article>
-                <img class="DogImage" id="img1" alt="Foto gato aleatorio">
-                <button id="btn1">Wow! Favoritos</button>
-            </article>
-
-            <article>
-                <img class="DogImage"id="img2" alt="Foto gato aleatorio">
-                <button id="btn2">Wow! Favoritos</button>
-            </article>
-
-            <div class="botonNext">
-                <button onclick="loadRandomDogs()" class="buttom--next-dog">Generate Doggy</button>
-            </div>
+        <section class="left">
+            <a href="/Dog/DoggoPics.html">
+                <img id="dogFace" src="/assets/img/dog.png" alt="dog">
+            </a>
+            <img class="circle" src="/assets/img/left_circle.png" alt="circle">
         </section>
-        
-        <section id="uploadingDoggy">
-            <h2>Sube la foto de tu doggo</h2>
-            <form id="uploadiongForm">
-                <input id="file" type="file" name="file">
-                <button type="button" onclick="uploadDoggyPhoto()" >Subir foto del doggy</button>
-            </form>
-        </section>
-
-        <section id="favorites">
-            <h2>Favorites</h2>
-            <article>
-                <img class="DogImage" id="img1" alt="Foto gato aleatorio">
-                <button>Sacar Doggo de fav.</button>
-            </article>
-        </section>
-        
-        <section id="about">
-            
+        <section class="right">
+            <a href="/Cat/MichiPics.html">
+                <img id="catFace" src="/assets/img/cat.png" alt="cat">
+            </a>
+            <img class="circle" src="/assets/img/right_circle.png" alt="circle">
         </section>
     </main>
-
-    <script src="./js/main.js"></script>
 </body>
 </html>
