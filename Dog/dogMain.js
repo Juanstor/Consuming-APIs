@@ -1,9 +1,9 @@
+// CONSUMING API
 const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=6';
 const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
 const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 const spanError = document.getElementById('error')
-
 
 async function loadRandomDogs() {
     const res = await fetch(API_URL_RANDOM);
@@ -154,3 +154,37 @@ async function uploadDoggyPhoto() {
 
 loadRandomDogs();
 loadFavoriteDogs()
+
+
+
+// TOGGLE CONTENT
+const navbarPics = document.querySelector('.navbar_pics');
+const sectionPics = document.querySelector('.section_pics');
+
+const navbarFavorite = document.querySelector('.navbar_favorite');
+const sectionFavorites = document.querySelector('.section_favorites');
+
+const navbarUpload = document.querySelector('.navbar_upload');
+const sectionUpload = document.querySelector('.section_upload');
+
+navbarPics.addEventListener('click', showPics);
+function showPics() {
+    sectionPics.classList.remove('inactive');
+    sectionFavorites.classList.add('inactive');
+    sectionUpload.classList.add('inactive');
+}
+
+navbarFavorite.addEventListener('click', showFavorite);
+function showFavorite() {
+    sectionPics.classList.add('inactive');
+    sectionFavorites.classList.remove('inactive');
+    sectionUpload.classList.add('inactive');
+}
+
+navbarUpload.addEventListener('click', showUpload);
+function showUpload() {
+    sectionPics.classList.add('inactive');
+    sectionFavorites.classList.add('inactive');
+    sectionUpload.classList.remove('inactive');
+}
+

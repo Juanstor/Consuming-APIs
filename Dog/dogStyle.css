@@ -131,10 +131,14 @@ h2 {
     color: var(--brown);
     margin-bottom: 12px;
 }
-    p {
-        font-weight: 400;
-        font-size: 1.6rem;
-        line-height: 1.9rem;
-        color: var(--black);
-        margin-bottom: 16px;
-    }
+p {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: var(--black);
+    margin-bottom: 16px;
+}
+
+.inactive {
+    display: none;
+}
