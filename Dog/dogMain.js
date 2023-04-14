@@ -1,8 +1,8 @@
 // CONSUMING API
-const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=6';
-const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
-const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
-const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
+const API_URL_RANDOM = 'https://api.thedogapi.com/v1/images/search?limit=6';
+const API_URL_FAVORITES = 'https://api.thedogapi.com/v1/favourites';
+const API_URL_FAVORITES_DELETE = (id) => `https://api.thedogapi.com/v1/favourites/${id}`;
+const API_URL_UPLOAD = 'https://api.thedogapi.com/v1/images/upload';
 const spanError = document.getElementById('error')
 
 async function loadRandomDogs() {
@@ -48,7 +48,7 @@ async function loadFavoriteDogs() {
     const res = await fetch(API_URL_FAVORITES, {
         method: 'GET',
         headers: {
-            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY'
+            'X-API-KEY': 'live_xsKZDX4ffFQzAOPnUqJF01tFT59ZlUBEWIkOWdd04OEJ0gMD5Juli2pbKWscJGhT'
         }
     }); 
     const data = await res.json();
@@ -88,7 +88,7 @@ async function saveFavoriteDog(id) {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY',
+            'X-API-KEY': 'live_xsKZDX4ffFQzAOPnUqJF01tFT59ZlUBEWIkOWdd04OEJ0gMD5Juli2pbKWscJGhT',
         },
         body: JSON.stringify({
             image_id: id
@@ -111,7 +111,7 @@ async function deleteFavoriteDog(id) {
     const res = await fetch(API_URL_FAVORITES_DELETE(id), {
         method: 'DELETE',
         headers: {
-            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY',
+            'X-API-KEY': 'live_xsKZDX4ffFQzAOPnUqJF01tFT59ZlUBEWIkOWdd04OEJ0gMD5Juli2pbKWscJGhT',
         }
         });
         const data = await res.json();
@@ -135,7 +135,7 @@ async function uploadDoggyPhoto() {
     const res = await fetch(API_URL_UPLOAD, {
         method: 'POST',
         headers: {
-            'X-API-KEY': 'live_N6Rgqu4It0XrhjY91dQDx1UAyBGXFlXJIM6fhbUiwfrORaleyO4Esm9wRG04YQkY',
+            'X-API-KEY': 'live_xsKZDX4ffFQzAOPnUqJF01tFT59ZlUBEWIkOWdd04OEJ0gMD5Juli2pbKWscJGhT',
         },
         body: formData,
     })

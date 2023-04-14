@@ -90,7 +90,6 @@ main {
     padding: 14px;
     background-color: var(--just-white);
 }
-
 /* pics */
 .btnGenerate-container {
     display: flex;
@@ -145,7 +144,6 @@ cursor: pointer;
 
 
 /* FAVORITE SECTION */
-
 h2 {
     font-weight: 800;
     font-size: 2.4rem;
@@ -153,15 +151,9 @@ h2 {
     color: var(--brown);
     margin-bottom: 12px;
 }
-
 #favorites {
     columns: 1;
     justify-self: center;
-}
-#favorites article img {
-    width: 292px;
-    box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
-    border-radius: 16px;
 }
 #favorites article {
     width: 292px;
@@ -169,15 +161,20 @@ h2 {
     margin-bottom: 14px;
     justify-content: center;    
 }
+#favorites article img {
+    width: 292px;
+    box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
+    border-radius: 16px;
+}
 #favorites article button {
     position: absolute;
     top: 8px;
-    left: 243px;
-    width: 40px;
-    height: 40px;
+    left: 248px;
+    width: 35px;
+    height: 35px;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 600;
     border: none;
     border-radius: 50%;
@@ -186,13 +183,41 @@ h2 {
 }
 
 
+
+/* UPLOAD SECTION */
+
 p {
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     line-height: 1.9rem;
     color: var(--black);
     margin-bottom: 16px;
 }
+
+.upload-box {
+    display: flex;
+    justify-content: center;
+}
+
+.upload-box form input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.upload-box form input {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+}
+.upload-box form button {
+    width: 120px;
+    margin: 20px auto;
+    font-size: 2rem;
+}
+
+
 
 /* MEDIA */
 @media (min-width:640px) {
@@ -228,7 +253,7 @@ p {
     }
     #favorites {
         columns: 1;
-        display: flex;
+        /* display: flex; */
         flex-direction: column;
         align-items: center;
     }

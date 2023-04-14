@@ -63,7 +63,7 @@ async function loadFavoriteDogs() {
         section.innerHTML = "";
 
         const h2 = document.createElement('h2');
-        const h2Text = document.createTextNode('Favorites');
+        const h2Text = document.createTextNode('Favorites ♥');
         h2.appendChild(h2Text);
         section.appendChild(h2);
 
@@ -71,7 +71,7 @@ async function loadFavoriteDogs() {
             const article = document.createElement('article');
             const img = document.createElement('img');
             const btn = document.createElement('button');
-            const btnText = document.createTextNode('Quitar de favoritos');
+            const btnText = document.createTextNode('X');
 
             img.src = doggy.image.url;
             btn.appendChild(btnText);
@@ -167,11 +167,16 @@ const sectionFavorites = document.querySelector('.section_favorites');
 const navbarUpload = document.querySelector('.navbar_upload');
 const sectionUpload = document.querySelector('.section_upload');
 
+// click
 navbarPics.addEventListener('click', showPics);
 function showPics() {
     sectionPics.classList.remove('inactive');
     sectionFavorites.classList.add('inactive');
     sectionUpload.classList.add('inactive');
+
+    navbarPics.classList.add('selected');
+    navbarFavorite.classList.remove('selected');
+    navbarUpload.classList.remove('selected');
 }
 
 navbarFavorite.addEventListener('click', showFavorite);
@@ -179,6 +184,10 @@ function showFavorite() {
     sectionPics.classList.add('inactive');
     sectionFavorites.classList.remove('inactive');
     sectionUpload.classList.add('inactive');
+
+    navbarPics.classList.remove('selected');
+    navbarFavorite.classList.add('selected');
+    navbarUpload.classList.remove('selected');
 }
 
 navbarUpload.addEventListener('click', showUpload);
@@ -186,5 +195,9 @@ function showUpload() {
     sectionPics.classList.add('inactive');
     sectionFavorites.classList.add('inactive');
     sectionUpload.classList.remove('inactive');
+
+    navbarPics.classList.remove('selected');
+    navbarFavorite.classList.remove('selected');
+    navbarUpload.classList.add('selected');
 }
 
