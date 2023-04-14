@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Dog/dogStyle.css">
+    <link rel="stylesheet" href="/cat/catStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Titan+One&display=swap" rel="stylesheet">
@@ -12,19 +12,19 @@
 </head>
 <body>
     <header>
-        <img class="main_icon" src="../assets/img/dog.png" alt="main icon">
+        <img class="main_icon" src="/assets/img/cat.png" alt="main icon">
         <span></span><h1>Doggo Pics</h1>
     </header>
     <nav>
         <ul>
-            <li><a href="/">Pics</a></li>
-            <li><a href="/">Favorite</a></li>
-            <li><a href="/">Upload image</a></li>
+            <li class="navbar_pics" >Pics</li>
+            <li class="navbar_favorite">Favorite</li>
+            <li class="navbar_upload">Upload image</li>
         </ul>
     </nav>
     <main>
         <span id="error"></span>
-        <section id="generate">
+        <section class="section_pics">
             <div class="btnGenerate-container">
                 <button onclick="loadRandomDogs()" class="buttom--next-dog">Generate Doggy</button>
             </div>
@@ -63,27 +63,27 @@
 
         </section>
         
-        <section id="uploadingDoggy">
-            <h2>Sube la foto de tu doggo</h2>
-            <form id="uploadiongForm">
-                <input id="file" type="file" name="file" placeholder="Sube tu foto">
-                <button type="button" onclick="uploadDoggyPhoto()" >Subir foto del doggy</button>
-            </form>
-        </section>
-
-        <section id="favorites">
+        <section class="section_favorites inactive" id="favorites">
             <h2>Favorites</h2>
             <article>
                 <img class="DogImage" id="img1" alt="Foto gato aleatorio">
                 <button>Sacar Doggo de fav.</button>
             </article>
         </section>
+
+        <section class="section_upload inactive" id="uploadingDoggy">
+            <h2>Sube la foto de tu doggo</h2>
+            <form id="uploadiongForm">
+                <input id="file" type="file" name="file" placeholder="Sube tu foto">
+                <button type="button" onclick="uploadDoggyPhoto()" >Subir foto del doggy</button>
+            </form>
+        </section>
         
-        <section id="about">
+        <section class="section_about">
             
         </section>
     </main>
 
-    <script src="../Dog/dogMain.js"></script>
+    <script src="/cat/catMain.js"></script>
 </body>
 </html>

@@ -19,8 +19,11 @@
     --blue:#0472FA;
     --brown:#5E3502;
     --black:#000000;
-
 }
+
+
+
+/* HEADER */
 header {
     display: flex;
     justify-content: left;
@@ -42,6 +45,9 @@ h1 {
     color: var(--just-white);
 }
 
+
+
+/* NAVBAR */
 nav ul {
     display: flex;
     height: 44px;
@@ -67,11 +73,15 @@ nav ul li a {
     color: var(--black);
 }
 
+
+/* MAIN */
 main {
     width: 100%;
     padding: 14px;
     background-color: var(--just-white);
 }
+
+/* pics */
 .btnGenerate-container {
     display: flex;
     justify-content: center;
@@ -93,12 +103,12 @@ cursor: pointer;
 }
 .pics-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 240px);
-    gap: 26px;
+    grid-template-columns: repeat(auto-fill, 292px);
+    gap: 14px;
     place-content: center;
 }
 .DogImage {
-    width: 240px;
+    width: 292px;
     box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
     border-radius: 16px;
 }
@@ -118,11 +128,11 @@ cursor: pointer;
     opacity: 70%;
 }
 
-
+/* 
 img {
     width: 150px;
     height: auto;
-}
+} */
 
 h2 {
     font-weight: 800;

@@ -1,9 +1,9 @@
-const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=2';
+// CONSUMING API
+const API_URL_RANDOM = 'https://api.thecatapi.com/v1/images/search?limit=6';
 const API_URL_FAVORITES = 'https://api.thecatapi.com/v1/favourites';
 const API_URL_FAVORITES_DELETE = (id) => `https://api.thecatapi.com/v1/favourites/${id}`;
 const API_URL_UPLOAD = 'https://api.thecatapi.com/v1/images/upload';
 const spanError = document.getElementById('error')
-
 
 async function loadRandomDogs() {
     const res = await fetch(API_URL_RANDOM);
@@ -17,14 +17,30 @@ async function loadRandomDogs() {
     } else {
         const img1 = document.getElementById('img1');
         const img2 = document.getElementById('img2');
+        const img3 = document.getElementById('img3');
+        const img4 = document.getElementById('img4');
+        const img5 = document.getElementById('img5');
+        const img6 = document.getElementById('img6');
         const btn1 = document.getElementById('btn1');
         const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+        const btn4 = document.getElementById('btn4');
+        const btn5 = document.getElementById('btn5');
+        const btn6 = document.getElementById('btn6');
 
         img1.src = data[0].url;
         img2.src = data[1].url;
+        img3.src = data[2].url;
+        img4.src = data[3].url;
+        img5.src = data[4].url;
+        img6.src = data[5].url;
 
         btn1.onclick = () => saveFavoriteDog(data[0].id);
         btn2.onclick = () => saveFavoriteDog(data[1].id);
+        btn3.onclick = () => saveFavoriteDog(data[2].id);
+        btn4.onclick = () => saveFavoriteDog(data[3].id);
+        btn5.onclick = () => saveFavoriteDog(data[4].id);
+        btn6.onclick = () => saveFavoriteDog(data[5].id);
     }
 }
 
@@ -138,3 +154,37 @@ async function uploadDoggyPhoto() {
 
 loadRandomDogs();
 loadFavoriteDogs()
+
+
+
+// TOGGLE CONTENT
+const navbarPics = document.querySelector('.navbar_pics');
+const sectionPics = document.querySelector('.section_pics');
+
+const navbarFavorite = document.querySelector('.navbar_favorite');
+const sectionFavorites = document.querySelector('.section_favorites');
+
+const navbarUpload = document.querySelector('.navbar_upload');
+const sectionUpload = document.querySelector('.section_upload');
+
+navbarPics.addEventListener('click', showPics);
+function showPics() {
+    sectionPics.classList.remove('inactive');
+    sectionFavorites.classList.add('inactive');
+    sectionUpload.classList.add('inactive');
+}
+
+navbarFavorite.addEventListener('click', showFavorite);
+function showFavorite() {
+    sectionPics.classList.add('inactive');
+    sectionFavorites.classList.remove('inactive');
+    sectionUpload.classList.add('inactive');
+}
+
+navbarUpload.addEventListener('click', showUpload);
+function showUpload() {
+    sectionPics.classList.add('inactive');
+    sectionFavorites.classList.add('inactive');
+    sectionUpload.classList.remove('inactive');
+}
+
