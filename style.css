@@ -17,14 +17,17 @@
 }
 header {
     position: absolute;
-    left: calc(50% - 237.5px);
-    margin: 20px;
-    padding: 10px;
-    border-radius: 16px;
-    font-size: 4rem;
+    left: 50%;
+    transform: translate(-50%, 40%);
+    padding: 14px;
+    text-align: center;
+    font-size: 2.5rem;
     font-family: 'Titan One', cursive;
+    border-radius: 16px;
     color: var(--just-white);
     background-color: rgba(0, 0, 0, 0.16);
+}
+h1 {
 }
 main {
     display: flex;
@@ -63,7 +66,7 @@ a {
 }
 
 #catFace {
-    padding: 25px;
+    padding: 45px 25px 25px 25px;
     transition: transform 0.3s ease-in-out;
 }
 #catFace:hover {
