@@ -21,25 +21,28 @@
     --black:#000000;
 }
 
+.inactive {
+    display: none;
+}
 
 
 /* HEADER */
 header {
     display: flex;
     justify-content: left;
-    height: 40px;
+    height: 64px;
     width: 100%;
     align-items: center;
     background-color: var(--orange);
 }
 .main_icon {
-        height: 25px;
-        width: 25px;
-        margin: 7px 14px;
+        height: 48px;
+        width: 48px;
+        margin: 8px 14px;
     }
 h1 {
     font-family: 'Titan One', cursive;
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: 400;
     line-height: 2.7rem;
     color: var(--just-white);
@@ -47,32 +50,39 @@ h1 {
 
 
 
+
 /* NAVBAR */
 nav ul {
     display: flex;
-    height: 44px;
     margin: 0 14px;
     padding-top: 14px;
     align-items: center;
-    font-size: 4rem;
+    font-size: 3rem;
     list-style: none;
     text-decoration: none;
-    background-color: var(--just-white);
-    border-bottom: 2px solid black;
-    width: 100%;
+    border-bottom: 3px solid var(--orange1);
 }
 nav ul li {
     display: flex;
     text-decoration: none;
-    background-color: var(--orange1);
+    background-color: var(--orange2);
     padding: 6px 14px 4px 14px;
     border-radius: 14px 14px 0 0;
+    margin: 0 7px;
 }
+
 nav ul li a {
     text-decoration: none;
     color: var(--black);
 }
 
+.selected {
+    background-color: var(--orange3);
+    transform: scale(1.2);
+    transform-origin: bottom;
+    transition: transform 0.2s ease-in-out;
+    z-index: -1;
+}
 
 /* MAIN */
 main {
@@ -87,11 +97,12 @@ main {
     justify-content: center;
     margin: 0 auto ;
 }
-.buttom--next-dog {
-width: 140px;
-height: 30px;
+.buttom-generate {
+width: 170px;
+height: 38px;
 border-radius: 4px;
-font-size: 1.6rem;
+margin-bottom: 14px;
+font-size: 2rem;
 font-weight: 400;
 line-height: 19px;
 color: var(--just-white);
@@ -102,21 +113,24 @@ button:hover{
 cursor: pointer;
 }
 .pics-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 292px);
-    gap: 14px;
-    place-content: center;
+    columns: 1;
+    justify-self: center;
+}
+.pics-container article {
+    width: 292px;
+    position: relative;
+    margin-bottom: 14px;
+    justify-content: center;        
 }
 .DogImage {
     width: 292px;
     box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
     border-radius: 16px;
 }
-
 .btnFav {
-    position: relative;
-    top: 48px;
-    left: 190px;
+    position: absolute;
+    top: 8px;
+    left: 243px;
     width: 40px;
     height: 40px;
     align-items: center;
@@ -128,11 +142,9 @@ cursor: pointer;
     opacity: 70%;
 }
 
-/* 
-img {
-    width: 150px;
-    height: auto;
-} */
+
+
+/* FAVORITE SECTION */
 
 h2 {
     font-weight: 800;
@@ -141,6 +153,39 @@ h2 {
     color: var(--brown);
     margin-bottom: 12px;
 }
+
+#favorites {
+    columns: 1;
+    justify-self: center;
+}
+#favorites article img {
+    width: 292px;
+    box-shadow: 0 4px 8px rgba(20, 20, 20, 0.20);
+    border-radius: 16px;
+}
+#favorites article {
+    width: 292px;
+    position: relative;
+    margin-bottom: 14px;
+    justify-content: center;    
+}
+#favorites article button {
+    position: absolute;
+    top: 8px;
+    left: 243px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 70%;
+}
+
+
 p {
     font-weight: 400;
     font-size: 1.6rem;
@@ -149,6 +194,42 @@ p {
     margin-bottom: 16px;
 }
 
-.inactive {
-    display: none;
+/* MEDIA */
+@media (min-width:640px) {
+    .pics-container {
+        columns: 2;
+    }
+    #favorites {
+        columns: 2;
+    }
+}
+@media (min-width:930px) {
+    .pics-container {
+        columns: 3;
+    }
+    #favorites {
+        columns: 3;
+    }
+}
+@media (min-width:1210px) {
+    .pics-container {
+        columns: 4;
+    }
+    #favorites {
+        columns: 4;
+    }
+}
+@media (max-width:639px) {
+    .pics-container {
+        columns: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #favorites {
+        columns: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/dog/dogStyle.css">
+    <link rel="stylesheet" href="./dogStyle.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Titan+One&display=swap" rel="stylesheet">
@@ -12,21 +12,21 @@
 </head>
 <body>
     <header>
-        <img class="main_icon" src="/assets/img/dog.png" alt="main icon">
+        <img class="main_icon" src="./assets/img/dog.png" alt="main icon">
         <span></span><h1>Doggo Pics</h1>
     </header>
     <nav>
         <ul>
-            <li class="navbar_pics" >Pics</li>
+            <li class="navbar_pics selected" >Pics</li>
             <li class="navbar_favorite">Favorite</li>
-            <li class="navbar_upload">Upload image</li>
+            <li class="navbar_upload">Upload</li>
         </ul>
     </nav>
     <main>
         <span id="error"></span>
         <section class="section_pics">
             <div class="btnGenerate-container">
-                <button onclick="loadRandomDogs()" class="buttom--next-dog">Generate Doggy</button>
+                <button onclick="loadRandomDogs()" class="buttom-generate">Generate Doggy</button>
             </div>
 
             <div class="pics-container">
@@ -64,11 +64,7 @@
         </section>
         
         <section class="section_favorites inactive" id="favorites">
-            <h2>Favorites</h2>
-            <article>
-                <img class="DogImage" id="img1" alt="Foto gato aleatorio">
-                <button>Sacar Doggo de fav.</button>
-            </article>
+
         </section>
 
         <section class="section_upload inactive" id="uploadingDoggy">
@@ -84,6 +80,6 @@
         </section>
     </main>
 
-    <script src="/dog/dogMain.js"></script>
+    <script src="./dogMain.js"></script>
 </body>
 </html>
